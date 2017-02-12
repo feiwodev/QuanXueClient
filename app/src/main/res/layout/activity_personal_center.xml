@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_personal_center"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/default_global_bg_color"
+    tools:context="com.zeno.quanxueclient.view.PersonalCenterActivity">
+
+    <!-- app title bar -->
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        app:navigationIcon="@drawable/icon_left_arrow"
+        app:popupTheme="@style/Theme.AppCompat.Light"
+        app:theme="@style/Base.ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:title="个人中心"
+        app:titleTextColor="@android:color/white" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:src="@mipmap/test"
+        android:scaleType="fitXY"
+        />
+
+    <TextView
+        android:id="@+id/tv_all_book_collection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:text="@string/collection_history_str"
+        android:layout_marginTop="10dp"
+        android:drawableLeft="@drawable/icon_collection_select"
+        android:gravity="center_vertical"
+        android:padding="10dp"
+        android:drawablePadding="5dp"
+        />
+
+    <TextView
+        android:id="@+id/tv_ll_all_note_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:text="@string/all_note_str"
+        android:layout_marginTop="10dp"
+        android:drawableLeft="@drawable/icon_note_red"
+        android:gravity="center_vertical"
+        android:padding="10dp"
+        android:drawablePadding="5dp"
+        />
+</LinearLayout>

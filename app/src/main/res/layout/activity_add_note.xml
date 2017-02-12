@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_add_note"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    android:clipChildren="false"
+    tools:context="com.zeno.quanxueclient.view.AddNoteActivity">
+
+    <!-- app title bar -->
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        app:navigationIcon="@drawable/icon_left_arrow"
+        app:popupTheme="@style/Theme.AppCompat.Light"
+        app:theme="@style/Base.ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:title="添加笔记"
+        app:titleTextColor="@android:color/white" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipChildren="false"
+        android:layout_margin="10dp"
+        >
+
+        <TextView
+            android:id="@+id/tv_book_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#DCCDB5"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="5dp"
+            android:padding="12dp"
+            android:textColor="#8f8168"
+            tools:text="asdfasjfdadsklfjfksanfsdadnfhnsauihdnifsanbfuiasfnasuifnsaufisafbsauifsabufisaifbfisabfsaifbnsaufisabfuisaf"
+            />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/icon_paper_clip"
+            android:layout_marginLeft="-6dp"
+            android:layout_marginTop="3dp"
+            />
+    </FrameLayout>
+
+    <EditText
+        android:id="@+id/et_user_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="top"
+        android:hint="书写心得"
+        android:padding="10dp"
+        android:focusableInTouchMode="true"
+        android:focusable="true"
+        android:clickable="true"
+        android:background="@null"
+        />
+
+</LinearLayout>

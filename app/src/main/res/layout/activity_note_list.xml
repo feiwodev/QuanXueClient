@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_note_list"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/default_global_bg_color"
+    tools:context="com.zeno.quanxueclient.view.NoteListActivity">
+
+    <!-- app title bar -->
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        app:navigationIcon="@drawable/icon_left_arrow"
+        app:popupTheme="@style/Theme.AppCompat.Light"
+        app:theme="@style/Base.ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:title="笔记列表"
+        app:titleTextColor="@android:color/white" />
+
+    <ViewFlipper
+        android:id="@+id/vf_switch"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <include layout="@layout/loading_progress"/>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_book_note_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+        <include layout="@layout/loading_error"/>
+    </ViewFlipper>
+</LinearLayout>

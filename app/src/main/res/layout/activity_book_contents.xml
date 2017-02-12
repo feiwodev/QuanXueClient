@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_book_contents"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/default_global_bg_color"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context="com.zeno.quanxueclient.view.BookContentsActivity">
+    <!-- app title bar -->
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        app:navigationIcon="@drawable/icon_left_arrow"
+        app:popupTheme="@style/Theme.AppCompat.Light"
+        app:theme="@style/Base.ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:title="@string/app_name"
+        app:titleTextColor="@android:color/white" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <FrameLayout
+            android:layout_width="80dp"
+            android:layout_height="90dp">
+
+            <ImageView
+                android:id="@+id/iv_book_pic"
+                android:layout_width="80dp"
+                android:layout_height="90dp"
+                android:layout_marginRight="5dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/book_cover" />
+
+            <TextView
+                android:id="@+id/tv_cover_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center"
+                android:paddingLeft="9dp"
+                android:paddingRight="8dp"
+                android:paddingTop="18dp"
+                android:text="有血按时发生"
+                android:textColor="@android:color/white"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/tv_cover_author"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:layout_marginRight="8dp"
+                android:paddingBottom="6dp"
+                android:paddingLeft="9dp"
+                android:paddingRight="8dp"
+                android:paddingTop="18dp"
+                android:singleLine="true"
+                android:text="有血按时发生"
+                android:textColor="@android:color/white"
+                android:textSize="8sp" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_book_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="春秋左传公羊传正史万事的的时代时代"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/tv_book_desc"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:ellipsize="end"
+                android:maxLines="4"
+                android:text="春秋左传公羊传正史万事的的时代春秋左传公羊传正史万事的的时代时代时代春秋左传公羊传正史万事的的时代时代春秋左传公羊传正史万事的的时代时代春秋左传公羊传正史万事的的时代时代"
+                android:textColor="@color/category_item_second_color" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/white"
+        android:paddingBottom="5dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="5dp">
+
+        <TextView
+            android:id="@+id/tv_book_collection"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/icon_collection_normal"
+            android:text="收藏" />
+
+        <TextView
+            android:id="@+id/tv_book_share"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:drawableTop="@drawable/icon_share"
+            android:text="分享" />
+
+        <TextView
+            android:id="@+id/tv_book_note"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:drawableTop="@drawable/icon_note_red"
+            android:text="笔记" />
+
+    </RelativeLayout>
+
+    <ViewFlipper
+        android:id="@+id/vf_switch"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include layout="@layout/loading_progress"/>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_book_contents"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="0.1dp"
+            android:clipToPadding="false"
+            android:paddingTop="8dp"
+            tools:listitem="@layout/item_book_contents_layout" />
+        <include layout="@layout/loading_error"/>
+    </ViewFlipper>
+</LinearLayout>

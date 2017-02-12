@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">劝学网</string>
+
+
+    <!-- main view -->
+    <string name="main_bulletin_str">公告：</string>
+    <string name="menu_setting">设置</string>
+    <string name="menu_person_center">个人中心</string>
+    <string name="loading_error_str">数据加载失败，请稍后重试!</string>
+    <string name="open">open</string>
+    <string name="close">close</string>
+
+    <!--###################### 设置界面 ##########################################################-->
+
+    <string name="setting_str">设置</string>
+    <string name="auto_cache_broswse_title">自动缓存浏览</string>
+    <string name="auto_cache_browse_tips">自动将浏览的文章缓存到本地，建议开启</string>
+    <string name="clear_cache_title">清除缓存</string>
+    <string name="clear_cache_tips">包括图片，文章，缓存的书籍</string>
+    <string name="about_app_str">关于</string>
+    <string name="checke_app_update_title">检查更新</string>
+    <string name="current_version_str">当前版本</string>
+    <string name="collection_history_str">全部收藏</string>
+    <string name="all_note_str">全部笔记</string>
+    <string name="app_author_str">劝学网客户端 @ 非我作品</string>
+    <string name="app_intro_str">劝学网是由小雅老师创办，旨在传播国学，弘扬中国传统文化，让更多爱好国学的人，有一个休憩交流之地。\n\n本客户端中的内容，是提取自劝学网，解析整个网站而成，不免有些疏漏，而导致APP崩溃，也因时间有限，有些模块也没有进行解析。
+    \n\n本客户端会在闲暇时进行更新，如果有好的建议或意见，可以发邮件至zhuyongit@163.com与我交流 。\n\n本客户端会进行开源，需要源码或进行合作开发的也请与我交流。
+    </string>
+
+    <string name="no_web_title_str">网页浏览</string>
+    <string name="web_loading_str">正在加载...</string>
+</resources>

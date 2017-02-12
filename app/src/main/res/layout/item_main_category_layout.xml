@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/item_mian_category_selector"
+    android:padding="10dp">
+
+    <ImageView
+        android:id="@+id/iv_category_pic"
+        android:layout_width="50dp"
+        android:layout_height="60dp"
+        android:scaleType="fitXY"
+        android:layout_marginRight="5dp"
+        android:src="@mipmap/ic_launcher"
+        />
+
+    <TextView
+        android:id="@+id/tv_category_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/iv_category_pic"
+        android:layout_toRightOf="@+id/iv_category_pic"
+        android:textSize="16sp"
+        android:singleLine="true"
+        tools:text="我是标题" />
+
+    <TextView
+        android:id="@+id/tv_category_desc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/iv_category_pic"
+        android:layout_alignEnd="@+id/tv_category_name"
+        android:layout_alignRight="@+id/tv_category_name"
+        android:layout_toRightOf="@+id/iv_category_pic"
+        android:layout_below="@id/tv_category_name"
+        android:ellipsize="end"
+        android:lines="2"
+        android:textColor="@color/category_item_second_color"
+        android:textSize="13sp"
+        tools:text="我是描述我是描述我是描述我是描述我是描述我是描述我是描述" />
+</RelativeLayout>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="关闭"
+        android:orderInCategory="100"
+        android:id="@+id/menu_close_page"
+        tools:ignore="AppCompatResource"
+        app:showAsAction="always"
+        android:icon="@drawable/icon_close"
+        />
+</menu>

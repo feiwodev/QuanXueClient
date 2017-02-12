@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_category_list"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/default_global_bg_color"
+    android:orientation="vertical"
+    tools:context="com.zeno.quanxueclient.view.CategoryListActivity">
+
+    <!-- app title bar -->
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        app:popupTheme="@style/Theme.AppCompat.Light"
+        app:theme="@style/Base.ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:title="@string/app_name"
+        app:navigationIcon="@drawable/icon_left_arrow"
+        app:titleTextColor="@android:color/white" />
+
+    <ViewFlipper
+        android:id="@+id/vf_switch"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include layout="@layout/loading_progress"/>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_category_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:listitem="@layout/item_category_list_layout" />
+
+        <include layout="@layout/loading_error"/>
+    </ViewFlipper>
+</LinearLayout>

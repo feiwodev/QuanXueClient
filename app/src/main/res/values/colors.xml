@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#F44336</color>
+    <color name="colorPrimaryDark">#D32F2F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="textColorPrimary">#212121</color>
+    <color name="textColorSecondary">#757575</color>
+    <color name="default_global_bg_color">#F0F0F2</color>
+
+    <!--公告背景色-->
+    <color name="main_bulletin_bg">#D7DCDE</color>
+
+
+    <!--#################################list item color#########################################-->
+    <!--main category item bg-->
+    <color name="main_category_item_bg">#ffffff</color>
+    <color name="category_item_second_color">#B5B5B5</color>
+
+    <!--##################################setting################################################-->
+    <color name="setting_category_title_color">#03A9F4</color>
+
+</resources>
