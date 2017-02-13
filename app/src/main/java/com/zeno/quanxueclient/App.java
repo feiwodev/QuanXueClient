@@ -29,7 +29,7 @@ public class App extends Application {
         _INSTANCE = this;
 
         // 配置网络
-        initNetConf();
+        NoHttp.initialize(this);
 
         // 配置日志打印
         XLog.init(BuildConfig.DEBUG ? LogLevel.ALL : LogLevel.NONE);
@@ -43,15 +43,6 @@ public class App extends Application {
         /*bugly*/
         Bugly.init(getApplicationContext(), "7545014971", BuildConfig.DEBUG ? true : false);
     }
-
-    /**
-     * 配置网络
-     */
-    private void initNetConf() {
-        // 配置网络
-        NoHttp.initialize(this);
-    }
-
 
 
     public static App getInstance() {
