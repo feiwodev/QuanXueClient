@@ -18,5 +18,34 @@
 > 4。webView使用的是腾讯X5引擎(还不错)
 
 
-### 截图
+## 截图
+
+### 首页
+
+![](https://raw.githubusercontent.com/zhuyongit/QuanXueClient/master/img/1.png)
+
+### 频道列表
+
+![](https://raw.githubusercontent.com/zhuyongit/QuanXueClient/master/img/2.png)
+
+### 书籍简介
+
+![](https://raw.githubusercontent.com/zhuyongit/QuanXueClient/master/img/3.png)
+
+### 阅读界面
+
+![](https://raw.githubusercontent.com/zhuyongit/QuanXueClient/master/img/4.png)
+
+### 书籍章节
+
+![](https://raw.githubusercontent.com/zhuyongit/QuanXueClient/master/img/5.png)
+
+### 添加笔记
+
+![](https://raw.githubusercontent.com/zhuyongit/QuanXueClient/master/img/6.png)
+
+### 导出笔记
+
+![](https://raw.githubusercontent.com/zhuyongit/QuanXueClient/master/img/7.png)
+
 
