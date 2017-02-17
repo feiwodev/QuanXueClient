@@ -11,11 +11,10 @@ package com.zeno.quanxueclient.model.htmlparser;
  * 书籍列表html解析
  */
 
+import com.elvishew.xlog.XLog;
 import com.zeno.quanxueclient.App;
 import com.zeno.quanxueclient.bean.BookBean;
-import com.zeno.quanxueclient.bean.Category;
 import com.zeno.quanxueclient.db.gen.BookBeanDao;
-import com.zeno.quanxueclient.db.gen.CategoryDao;
 import com.zeno.quanxueclient.db.gen.DaoSession;
 import com.zeno.quanxueclient.net.API;
 import com.zeno.quanxueclient.utils.StringUtils;
@@ -45,11 +44,19 @@ public class CommonCategoryListParser {
             Element body = document.body();
             Elements tableElements = body.getElementsByTag("tr");
             int tableSize = tableElements.size();
-
-            for (int i = 1; i < tableSize; i++)
-            {
-                htmlParser(baseUri, tableElements, i,categoryUrl,bookBeanDao);
+            XLog.e("category ---- "+categoryUrl);
+            if (categoryUrl.contains("QT_MingXiang")) {
+                for (int i = 6; i < tableSize; i++)
+                {
+                    htmlParser(baseUri, tableElements, i,categoryUrl,bookBeanDao);
+                }
+            }else{
+                for (int i = 1; i < tableSize; i++)
+                {
+                    htmlParser(baseUri, tableElements, i,categoryUrl,bookBeanDao);
+                }
             }
+
 
         }catch (Exception e) {
             e.printStackTrace();

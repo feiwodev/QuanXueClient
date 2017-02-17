@@ -51,6 +51,7 @@ public class CategoryListActivity extends BaseActivity<ICategoryView, CategoryLi
 
     private List<BookBean> bookBeanList = new ArrayList<>();
     private CategoryListAdapter mCategoryListAdapter;
+    private Category mCategory;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,10 +77,10 @@ public class CategoryListActivity extends BaseActivity<ICategoryView, CategoryLi
      * 初始化
      */
     private void init() {
-        Category category = getIntent().getParcelableExtra(CATEGORY_LIST_BEAN);
-        setTitleBar(category.getName());
+        mCategory = getIntent().getParcelableExtra(CATEGORY_LIST_BEAN);
+        setTitleBar(mCategory.getName());
 
-        mPresenter.fetch(category.getUrl());
+        mPresenter.fetch(mCategory.getUrl());
 
         setRecyclerView();
 
@@ -141,7 +142,15 @@ public class CategoryListActivity extends BaseActivity<ICategoryView, CategoryLi
     public void showDatas(List<BookBean> bookBeen) {
         XLog.e(bookBeen.toString());
         bookBeanList.clear();
-        bookBeanList.addAll(bookBeen);
+        if (mCategory.getUrl().contains("QT_MingXiang")) {
+            int size = bookBeen.size();
+            for (int i = 6; i < size; i++) {
+                bookBeanList.add(bookBeen.get(i));
+            }
+        }else{
+            bookBeanList.addAll(bookBeen);
+        }
+
         if (mCategoryListAdapter != null)
             mCategoryListAdapter.notifyDataSetChanged();
     }

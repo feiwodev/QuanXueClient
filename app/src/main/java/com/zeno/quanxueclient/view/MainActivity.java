@@ -146,10 +146,12 @@ public class MainActivity extends BaseActivity<IMainView, MainPresenter> impleme
             @Override
             public void onClick(View view, Object obj,int position) {
                 Category category = (Category) obj;
-                if (!"南怀瑾".equals(category.getName()))
-                    CategoryListActivity.showCategoryListView(MainActivity.this,category);
-                else
+                if ("南怀瑾".equals(category.getName())) {
                     Toast.makeText(MainActivity.this, "此模块暂未解析完全", Toast.LENGTH_SHORT).show();
+                } else {
+                    CategoryListActivity.showCategoryListView(MainActivity.this, category);
+                }
+
             }
         });
 
