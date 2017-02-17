@@ -127,12 +127,14 @@ public class CategoryListActivity extends BaseActivity<ICategoryView, CategoryLi
 
     @Override
     public void showLoading() {
-        vfSwitch.setDisplayedChild(0);
+        if (vfSwitch != null)
+            vfSwitch.setDisplayedChild(0);
     }
 
     @Override
     public void hideLoading() {
-        vfSwitch.setDisplayedChild(1);
+        if (vfSwitch != null)
+            vfSwitch.setDisplayedChild(1);
     }
 
     @Override
@@ -146,6 +148,7 @@ public class CategoryListActivity extends BaseActivity<ICategoryView, CategoryLi
 
     @Override
     public void showError(String mssage) {
-        vfSwitch.setDisplayedChild(2);
+        if (vfSwitch != null)
+            vfSwitch.setDisplayedChild(2);
     }
 }

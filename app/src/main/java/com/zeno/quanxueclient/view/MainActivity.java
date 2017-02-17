@@ -185,7 +185,8 @@ public class MainActivity extends BaseActivity<IMainView, MainPresenter> impleme
 
     @Override
     public void showLoading() {
-        vf.setDisplayedChild(0);
+        if (vf != null)
+            vf.setDisplayedChild(0);
     }
 
     @Override
@@ -193,7 +194,8 @@ public class MainActivity extends BaseActivity<IMainView, MainPresenter> impleme
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                vf.setDisplayedChild(1);
+                if (vf != null)
+                    vf.setDisplayedChild(1);
             }
         },800);
 
@@ -242,16 +244,19 @@ public class MainActivity extends BaseActivity<IMainView, MainPresenter> impleme
      * @param bulletins 轮播公告数据
      */
     private void setAutoText(final List<String> bulletins) {
-        autoText.setTextList(bulletins);//加入显示内容,集合类型
+        if (bulletins != null && bulletins.size() > 0 && autoText != null) {
+            autoText.setTextList(bulletins);//加入显示内容,集合类型
+            //对单条文字的点击监听
+            autoText.setOnItemClickListener(new VerticalTextview.OnItemClickListener() {
+                @Override
+                public void onItemClick(int position) {
+                    Toast.makeText(MainActivity.this, bulletins.get(position), Toast.LENGTH_SHORT).show();
 
-        //对单条文字的点击监听
-        autoText.setOnItemClickListener(new VerticalTextview.OnItemClickListener() {
-            @Override
-            public void onItemClick(int position) {
-                Toast.makeText(MainActivity.this, bulletins.get(position), Toast.LENGTH_SHORT).show();
+                }
+            });
 
-            }
-        });
+        }
+
     }
 
     @Override

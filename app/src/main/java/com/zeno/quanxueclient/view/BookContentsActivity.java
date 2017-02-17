@@ -200,12 +200,14 @@ public class BookContentsActivity extends BaseActivity<IBookContentsView, BookCo
 
     @Override
     public void showLoading() {
-        vfSwitch.setDisplayedChild(0);
+        if (vfSwitch != null)
+            vfSwitch.setDisplayedChild(0);
     }
 
     @Override
     public void hideLoading() {
-        vfSwitch.setDisplayedChild(1);
+        if (vfSwitch != null)
+            vfSwitch.setDisplayedChild(1);
     }
 
     @Override

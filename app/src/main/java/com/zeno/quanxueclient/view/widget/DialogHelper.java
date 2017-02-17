@@ -1,5 +1,6 @@
 package com.zeno.quanxueclient.view.widget;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -34,7 +35,10 @@ public class DialogHelper {
             });
             mDialog = builder.create();
         }
-        mDialog.show();
+        if (!((Activity) context).isFinishing()) {
+            mDialog.show();
+        }
+
     }
 
     public interface DialogOkClickListener {
