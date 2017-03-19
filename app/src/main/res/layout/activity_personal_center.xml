@@ -25,7 +25,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="160dp"
-        android:src="@mipmap/test"
+        android:src="@mipmap/user_bg"
         android:scaleType="fitXY"
         />
 

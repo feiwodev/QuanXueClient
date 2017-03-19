@@ -8,25 +8,11 @@ android {
         applicationId "com.zeno.quanxueclient"
         minSdkVersion 15
         targetSdkVersion 25
-        versionCode 2
-        versionName "1.0.2"
+        versionCode 3
+        versionName "1.1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
         ndk {abiFilters "armeabi-v7a"}
-    }
-    buildTypes {
-        release {
-            minifyEnabled false
-            zipAlignEnabled true
-            shrinkResources true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-    }
-
-    greendao {
-        schemaVersion 1 // db version
-        daoPackage 'com.zeno.quanxueclient.db.gen' // generator dao package
-        targetGenDir 'src/main/java' // generator file dir
     }
 
     signingConfigs{
@@ -38,12 +24,41 @@ android {
         }
     }
 
+    buildTypes {
+        release {
+//            shrinkResources true
+            minifyEnabled false
+            zipAlignEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+        debug {
+            ndk {abiFilters "armeabi-v7a","x86"}
+
+            shrinkResources false
+            minifyEnabled false
+            zipAlignEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+    }
+
+    greendao {
+        schemaVersion 1 // db version
+        daoPackage 'com.zeno.quanxueclient.db.gen' // generator dao package
+        targetGenDir 'src/main/java' // generator file dir
+    }
+
+
+
     // lint配置
     lintOptions {
         // if true, stop the gradle build if errors are found
-        abortOnError true
+        abortOnError false
         // if true, only report errors
         ignoreWarnings true
+
+        checkReleaseBuilds false
     }
 
     packagingOptions {

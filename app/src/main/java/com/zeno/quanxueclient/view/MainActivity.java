@@ -122,7 +122,11 @@ public class MainActivity extends BaseActivity<IMainView, MainPresenter> impleme
      * 类别List设置
      */
     private void setupRecyclerView() {
-        mCategoryGridAdapter = new CategoryGridAdapter(mLists);
+        try{
+            mCategoryGridAdapter = new CategoryGridAdapter(mLists);
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
         /*解决NestedScrollView与RecyclerView滑动冲突*/
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
         gridLayoutManager.setSmoothScrollbarEnabled(true);
@@ -248,15 +252,6 @@ public class MainActivity extends BaseActivity<IMainView, MainPresenter> impleme
     private void setAutoText(final List<String> bulletins) {
         if (bulletins != null && bulletins.size() > 0 && autoText != null) {
             autoText.setTextList(bulletins);//加入显示内容,集合类型
-            //对单条文字的点击监听
-            autoText.setOnItemClickListener(new VerticalTextview.OnItemClickListener() {
-                @Override
-                public void onItemClick(int position) {
-                    Toast.makeText(MainActivity.this, bulletins.get(position), Toast.LENGTH_SHORT).show();
-
-                }
-            });
-
         }
 
     }
