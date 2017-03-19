@@ -5,13 +5,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
+import android.webkit.WebChromeClient;
+import android.webkit.WebResourceRequest;
+import android.webkit.WebView;
 import android.widget.FrameLayout;
 import android.widget.ViewFlipper;
 
-import com.tencent.smtt.export.external.interfaces.WebResourceRequest;
-import com.tencent.smtt.sdk.WebChromeClient;
-import com.tencent.smtt.sdk.WebView;
-import com.tencent.smtt.sdk.WebViewClient;
 import com.zeno.quanxueclient.R;
 import com.zeno.quanxueclient.presenter.BasePresenter;
 import com.zeno.quanxueclient.view.widget.X5WebView;
@@ -88,7 +87,7 @@ public class CommonBrowserActivity extends BaseActivity {
             }
 
             @Override
-            public void onReceivedError(WebView webView, WebResourceRequest webResourceRequest, WebViewClient.a a) {
+            public void onReceivedError(WebView webView, WebResourceRequest webResourceRequest) {
                 if (vfSwitch != null)
                     vfSwitch.setDisplayedChild(2);
             }

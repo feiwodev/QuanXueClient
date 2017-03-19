@@ -20,6 +20,8 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Toast;
 
+import com.android.colorpicker.ColorPickerDialog;
+import com.android.colorpicker.ColorPickerSwatch;
 import com.elvishew.xlog.XLog;
 import com.zeno.quanxueclient.R;
 import com.zeno.quanxueclient.adapter.BaseAdapter;
@@ -27,6 +29,7 @@ import com.zeno.quanxueclient.adapter.BookContentsAdapter;
 import com.zeno.quanxueclient.adapter.ReadBookContentAdapter;
 import com.zeno.quanxueclient.bean.BookContentsBean;
 import com.zeno.quanxueclient.presenter.ReadBookPresenter;
+import com.zeno.quanxueclient.utils.AppSettingUtils;
 import com.zeno.quanxueclient.view.decoration.BookContentsListDecoration;
 import com.zeno.quanxueclient.view.vinterface.IReadBookView;
 
@@ -64,6 +67,9 @@ public class ReadBookActivity extends BaseActivity<IReadBookView, ReadBookPresen
     private int mIndex = 0;
     private ClipboardManager mClipboardManager;
     private String mBookUrl;
+
+    private int[] pickerColors ;
+    private ColorPickerDialog mColorPickerDialog;
 
     /**
      * 显示书籍阅读界面
@@ -105,6 +111,18 @@ public class ReadBookActivity extends BaseActivity<IReadBookView, ReadBookPresen
         /*清空剪贴板数据*/
         mClipboardManager = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
         mClipboardManager.setPrimaryClip(ClipData.newPlainText(null,""));
+
+        pickerColors = new int[]{
+                getColorFormRes(R.color.almond_yellow),
+                getColorFormRes(R.color.autumn_leaves_brown),
+                getColorFormRes(R.color.carmine),
+                getColorFormRes(R.color.green_grass_green),
+                getColorFormRes(R.color.ge_towel_purple),
+                getColorFormRes(R.color.aurora_gray),
+        };
+
+        if (mColorPickerDialog == null)
+            mColorPickerDialog = ColorPickerDialog.newInstance(R.string.read_bg_color_picker, pickerColors, AppSettingUtils.getKeyReadContentBgColor(), 3, pickerColors.length);
 
         if (mBookContentsAdapter == null)
             mBookContentsAdapter = new BookContentsAdapter(mBookContentsBeanList);
@@ -185,9 +203,14 @@ public class ReadBookActivity extends BaseActivity<IReadBookView, ReadBookPresen
         toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
-                if (item.getItemId() == R.id.menu_close_page)
-                    finish();
-
+                switch (item.getItemId()) {
+                    case R.id.menu_close_page:
+                        finish();
+                        break;
+                    case R.id.menu_page_color:
+                        showSelectBgColor();
+                        break;
+                }
                 return false;
             }
         });
@@ -204,6 +227,26 @@ public class ReadBookActivity extends BaseActivity<IReadBookView, ReadBookPresen
 
             }
         });
+
+        mColorPickerDialog.setOnColorSelectedListener(new ColorPickerSwatch.OnColorSelectedListener() {
+            @Override
+            public void onColorSelected(int color) {
+                AppSettingUtils.setKeyReadContentBgColor(color);
+                rvBookContent.setAdapter(mReadBookContentAdapter);
+                mReadBookContentAdapter.notifyDataSetChanged();
+            }
+        });
+    }
+
+
+    private void showSelectBgColor() {
+
+        if (!mColorPickerDialog.isVisible())
+            mColorPickerDialog.show(getFragmentManager(),"colorPicker");
+    }
+
+    private int getColorFormRes(int resId) {
+        return getResources().getColor(resId);
     }
 
     /**

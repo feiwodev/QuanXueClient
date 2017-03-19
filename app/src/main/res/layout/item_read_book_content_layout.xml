@@ -3,11 +3,10 @@
     android:id="@+id/fl_book_content"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:focusableInTouchMode="false"
-    android:focusable="false"
+    android:background="#ffddee"
     android:clickable="false"
-    android:background="@android:color/white"
-    >
+    android:focusable="false"
+    android:focusableInTouchMode="false">
 
 
 </FrameLayout>

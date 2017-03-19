@@ -16,21 +16,23 @@
 #   public *;
 #}
 
--optimizationpasses 5
 # 指定代码的压缩级别
--dontusemixedcaseclassnames
+-optimizationpasses 10
 # 是否使用大小写混合
--dontskipnonpubliclibraryclasses
+-dontusemixedcaseclassnames
 # 是否混淆第三方jar
--dontpreverify
+-dontskipnonpubliclibraryclasses
 # 混淆时是否做预校验
--verbose
+-dontskipnonpubliclibraryclassmembers
+-dontpreverify
 # 混淆时是否记录日志
--optimizations !code/simplification/arithmetic,!field/*,!class/merging/*
+-verbose
 # 混淆时所采用的算法
+-optimizations !code/simplification/arithmetic,!field/*,!class/merging/*
 
--keep class * implements android.os.Parcelable {
 # 保持 Parcelable 不被混淆
+-keep class * implements android.os.Parcelable {
+
   public static final android.os.Parcelable$Creator *;
 }
 
@@ -74,3 +76,10 @@
 }
 
 -dontnote rx.internal.util.PlatformDependent
+
+
+-keep public class com.tencent.smtt.export.external.extension.proxy.ProxyWebViewClientExtension {
+    public <fields>;
+    public <methods>;
+}
+

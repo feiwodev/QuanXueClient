@@ -11,7 +11,6 @@ import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.widget.FrameLayout;
 
-import com.elvishew.xlog.XLog;
 import com.zeno.quanxueclient.App;
 import com.zeno.quanxueclient.R;
 import com.zeno.quanxueclient.bean.BookContentBean;
@@ -20,6 +19,7 @@ import com.zeno.quanxueclient.db.gen.BookContentBeanDao;
 import com.zeno.quanxueclient.net.API;
 import com.zeno.quanxueclient.net.HttpStringCallBack;
 import com.zeno.quanxueclient.net.HttpUtils;
+import com.zeno.quanxueclient.utils.AppSettingUtils;
 import com.zeno.quanxueclient.view.widget.X5WebView;
 
 import org.jsoup.Jsoup;
@@ -91,6 +91,7 @@ public class ReadBookContentAdapter extends BaseAdapter<BookContentsBean> {
     private void showHtml(String bodyString, BaseViewHolder holder) {
         FrameLayout frameLayout = holder.getView(R.id.fl_book_content);
         X5WebView x5WebView =  new X5WebView(holder.itemView.getContext(),null);
+        x5WebView.setBackgroundColor(AppSettingUtils.getKeyReadContentBgColor());
         x5WebView.setFocusable(true);
         x5WebView.setFocusableInTouchMode(true);
         x5WebView.setClickable(true);

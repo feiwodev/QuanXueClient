@@ -29,4 +29,6 @@
 
     <string name="no_web_title_str">网页浏览</string>
     <string name="web_loading_str">正在加载...</string>
+    
+    <string name="read_bg_color_picker">阅读背景颜色选择</string>
 </resources>

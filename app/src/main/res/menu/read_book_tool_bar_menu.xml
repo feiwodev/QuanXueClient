@@ -3,6 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <item android:title="背景色"
+        android:orderInCategory="100"
+        android:id="@+id/menu_page_color"
+        tools:ignore="AppCompatResource"
+        app:showAsAction="always"
+        android:icon="@drawable/icon_read_bg_color"
+        />
+
     <item android:title="关闭"
         android:orderInCategory="100"
         android:id="@+id/menu_close_page"
@@ -10,4 +18,5 @@
         app:showAsAction="always"
         android:icon="@drawable/icon_close"
         />
+
 </menu>

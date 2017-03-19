@@ -9,11 +9,12 @@ package com.zeno.quanxueclient.view.widget;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.webkit.WebResourceError;
+import android.webkit.WebResourceRequest;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
-import com.tencent.smtt.export.external.interfaces.WebResourceRequest;
-import com.tencent.smtt.sdk.WebSettings;
-import com.tencent.smtt.sdk.WebView;
-import com.tencent.smtt.sdk.WebViewClient;
 
 public class X5WebView extends WebView {
 
@@ -73,11 +74,12 @@ public class X5WebView extends WebView {
         }
 
         @Override
-        public void onReceivedError(WebView webView, WebResourceRequest webResourceRequest, WebViewClient.a a) {
-            super.onReceivedError(webView, webResourceRequest, a);
+        public void onReceivedError(WebView view, WebResourceRequest request, WebResourceError error) {
+            super.onReceivedError(view, request, error);
             if (webPageLoadListener != null)
-                webPageLoadListener.onReceivedError(webView,webResourceRequest,a);
+                webPageLoadListener.onReceivedError(view,request);
         }
+
 
     };
 
@@ -85,7 +87,7 @@ public class X5WebView extends WebView {
     public interface WebPageLoadListener{
         void shouldOverrideUrlLoading(WebView view, String url);
         void onPageFinished(WebView webView, String s);
-        void onReceivedError(WebView webView, WebResourceRequest webResourceRequest, WebViewClient.a a);
+        void onReceivedError(WebView webView, WebResourceRequest webResourceRequest);
     }
 
     public void setWebPageLoadListener(WebPageLoadListener webPageLoadListener) {

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="white">#FFFFFF</color>
+    <color name="almond_yellow">#FAF9DE</color>
+    <color name="autumn_leaves_brown">#FFF2E2</color>
+    <color name="carmine">#FDE6E0</color>
+    <color name="green_grass_green">#E3EDCD</color>
+    <color name="sea_sky_blue">#DCE2F1</color>
+    <color name="ge_towel_purple">#E9EBFE</color>
+    <color name="aurora_gray">#EAEAEF</color>
+</resources>

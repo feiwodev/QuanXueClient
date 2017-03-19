@@ -5,11 +5,10 @@ import android.app.Application;
 import com.elvishew.xlog.LogLevel;
 import com.elvishew.xlog.XLog;
 import com.tencent.bugly.Bugly;
-import com.tencent.smtt.sdk.QbSdk;
 import com.yolanda.nohttp.NoHttp;
 import com.zeno.quanxueclient.db.DBManager;
 import com.zeno.quanxueclient.db.gen.DaoSession;
-import com.zeno.quanxueclient.utils.QBSdkPreInit;
+import com.zeno.quanxueclient.utils.AppSettingUtils;
 
 
 /**
@@ -37,11 +36,14 @@ public class App extends Application {
         // 初始化DB session
         mDaoSession = DBManager.getInstance(this).getDaoSession();
 
-        /*初始化X5*/
-        QbSdk.initX5Environment(getApplicationContext(),new QBSdkPreInit());
-
         /*bugly*/
         Bugly.init(getApplicationContext(), "7545014971", BuildConfig.DEBUG ? true : false);
+
+        /**
+         * 初始化系统设置
+         */
+        AppSettingUtils.init(getApplicationContext());
+
     }
 
 
